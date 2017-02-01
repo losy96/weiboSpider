@@ -9,7 +9,9 @@ def draw_infor(url):
 	try:
 		login_session = loginSession.login_session()
 		html = login_session.get(url).content
+		#print html
 		isLogin.is_login(html);
+		selector = etree.HTML(html)
 		uid_url = selector.xpath('//tr/td[2]/a[2]/@href')
 		user = {}
 		name = selector.xpath('//tr/td[2]/a[1]/text()')
@@ -30,7 +32,7 @@ if __name__ == "__main__":
 	print uid
 	page = 1
 	url = "http://weibo.cn/"+ str(uid) +"/follow?page=" + str(page)
-	print 1
+
 	page_number = draw_infor(url)
 	print page_number
 	page_number = int(page_number)

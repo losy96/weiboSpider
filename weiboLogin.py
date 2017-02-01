@@ -11,7 +11,6 @@ import sendEmail
 import myCookies
 def weibo_login(url):
 
-	url = url
 	url_login = 'http://login.weibo.cn/login/'
 	print "正在请求网页..."
 	html = requests.get(url).content
@@ -67,7 +66,6 @@ def weibo_login(url):
 	print cookies
 	myCookies.save_cookies(cookies)
 	return html
-
 
 	#print cookies1
 	#cookies2 = requests.utils.cookiejar_from_dict(cookies1)
